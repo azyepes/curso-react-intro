@@ -2,7 +2,7 @@
 
 function CreateTodoButton() {
   return (
-    <button>+</button>
+    <button><i className={"fa-solid fa-circle-plus"}></i></button>
   )
 }
 

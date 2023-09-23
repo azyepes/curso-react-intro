@@ -1,17 +1,16 @@
-import '../css/TodoItem.css'
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { icon } from '@fortawesome/fontawesome-svg-core/import.macro'
-// icon({name: 'user', family: 'classic', style: 'solid'})
 
-{/* <FontAwesomeIcon icon={solid("check")} /> */}
+
+const iconColor = {
+  color: "hsla(0, 0%, 77%, 1)"
+};
 
 function TodoItem( props ) {
     return (
       <li>
-        <span>V</span>
+        <span><i className={"fa-solid fa-check"}></i></span>
         <p>{props.text}</p>
-        <span>E</span>
-        <span>X</span>
+        <span><i className={"fa-solid fa-pen"}></i></span>
+        <span><i className={"fa-solid fa-trash"}></i></span>
       </li>
     );
   }

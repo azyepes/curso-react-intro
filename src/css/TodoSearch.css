@@ -6,7 +6,6 @@
 }
 
 input {
-    border: solid 0.2rem var(--text-border-black);
     border-radius: 0.2rem;
     box-shadow: 0px 5px 50px 0px hsla(220, 12%, 14%, 0.25);
     width: 100%;
@@ -14,4 +13,5 @@ input {
     font-size: 2.4rem;
     padding-left: 4.8rem;
     padding-right: 2.4rem;
+    cursor: pointer;
   }

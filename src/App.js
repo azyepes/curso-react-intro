@@ -16,11 +16,13 @@ const defaultTodos = [
   { text: 'Descansar después de cocinar, estudiar y comer', completed: true},
 ]
 
+const completeTodo = defaultTodos.filter(todo => (todo.completed === true))
+
 function App() {
   return (
     <React.Fragment>
 
-      <TodoCounter completed={16} total={25} />
+      <TodoCounter completed={completeTodo.length} total={defaultTodos.length} />
       <TodoSearch />
 
       <TodoList>
