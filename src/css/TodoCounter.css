@@ -4,8 +4,8 @@
   padding-top: 10.5rem;
 }
 
-h1,
-h1 span {
+.title,
+.title span {
   font-size: 2.4rem;
   line-height: 2.9rem;
   letter-spacing: 0rem;
@@ -14,10 +14,10 @@ h1 span {
   margin: auto;
   }
 
-h1 {
+.title {
   font-weight: 400;
 }
 
-h1 span {
+span {
   font-weight: 700;
 }

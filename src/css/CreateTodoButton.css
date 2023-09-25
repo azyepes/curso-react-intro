@@ -1,0 +1,40 @@
+:root {
+  --react-blue: hsla(193, 94%, 68%, 1);
+  --icon-delete: hsla(0, 99%, 59%, 1);
+  --bg-elevate-0: hsla(200, 13%, 95%, 1);
+  }
+
+.plusButton {
+  position: fixed;
+  width: 37.5rem;
+  height: 6rem;
+  bottom: 0rem;
+  border: solid 0 var(--react-blue);
+  background-color: var(--react-blue);
+  border-radius: 1rem 1rem 0 0;
+  box-shadow: 0px 5px 25px 0px var(--react-blue);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: bottom 1s ease;
+}
+  
+.plus {
+  width: 4rem;
+  height: 4rem;
+  font-size: 4rem;
+  font-weight: 700;
+  transform: rotate(0);
+  transition: 1s ease;
+  color: var(--bg-elevate-0);
+}
+
+.plusButtonHover {
+  background-color: var(--icon-delete);
+  box-shadow: 0px 5px 25px 0px var(--icon-delete);
+}  
+
+.plusHover {
+  transform: rotate(225deg);
+}

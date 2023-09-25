@@ -4,7 +4,7 @@ import { TodoSearch } from "./components/TodoSearch";
 import { CreateTodoButton } from "./components/CreateTodoButton";
 import { TodoItem } from "./components/TodoItem";
 import { TodoList } from "./components/TodoList";
-import { TodoModalNew } from './components/TodoModalNew';
+import { TodoModalNew } from './components/ModalNewTodo';
 
 const defaultTodos = [
   { text: 'Cortar cebolla', completed: false},

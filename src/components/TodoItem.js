@@ -1,8 +1,4 @@
-
-
-const iconColor = {
-  color: "hsla(0, 0%, 77%, 1)"
-};
+import '../css/TodoItem.css'
 
 function TodoItem( props ) {
     return (

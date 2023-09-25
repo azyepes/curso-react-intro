@@ -6,7 +6,7 @@ import '../css/TodoCounter.css'
 function TodoCounter({ total, completed }) {
     return (
       <div className='header'>
-        <h1>
+        <h1 className='title'>
           Has completado <span>{completed}</span> de <span>{total}</span> TODOs
         </h1>
       </div>
