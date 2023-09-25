@@ -12,12 +12,12 @@
   text-align: center;
   width: 70%;
   margin: auto;
-  }
+}
 
 .title {
   font-weight: 400;
 }
 
-span {
+.title span {
   font-weight: 700;
 }

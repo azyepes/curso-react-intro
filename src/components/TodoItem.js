@@ -1,14 +1,27 @@
-import '../css/TodoItem.css'
+import "../css/TodoItem.css";
 
-function TodoItem( props ) {
-    return (
-      <li>
-        <span><i className={"fa-solid fa-check"}></i></span>
-        <p>{props.text}</p>
-        <span><i className={"fa-solid fa-pen"}></i></span>
-        <span><i className={"fa-solid fa-trash"}></i></span>
-      </li>
-    );
-  }
+function TodoItem( { text, completed, searchValue, setSearchValue } ) {
 
-export  { TodoItem }
+  return (
+    <li>
+      <span>
+        <i
+          className={`fa-solid fa-check ${
+            completed && "fa-check--complete"
+          } `}
+        ></i>
+      </span>
+      <p className={`todoItem ${completed && "todoItem--complete"}`}>
+        {text}
+      </p>
+      <span>
+        <i className={"fa-solid fa-pen"}></i>
+      </span>
+      <span>
+        <i className={"fa-solid fa-trash"}></i>
+      </span>
+    </li>
+  );
+}
+
+export { TodoItem };

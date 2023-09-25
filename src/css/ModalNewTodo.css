@@ -1,0 +1,57 @@
+:root {
+  --bg-elevate-0: hsla(200, 13%, 95%, 1);
+  --bg-elevate-1: hsla(0, 0%, 98%, 1);
+  --react-blue: hsla(193, 94%, 68%, 1);
+  --text-border-black: hsla(240, 2%, 12%, 0.15);
+  --icon-default: hsla(0, 0%, 49%, 1);
+  --icon-success: hsla(120, 99%, 37%, 1);
+  --icon-delete: hsla(0, 99%, 59%, 1);
+  --bg-elevate-99: hsla(220, 12%, 14%, 0.015);
+  --placeholder: hsla(220, 12%, 14%, 0.2);
+  --edit: hsla(218, 45%, 22%, 1);
+}
+
+.modal {
+  width: 37.5rem;
+  height: 10rem;
+  position: fixed;
+  bottom: -10rem;
+  background: var(--bg-elevate-1);
+  box-shadow: 0px 5px 50px 0px var(--text-border-black);
+  transition: bottom 1s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-plusButton--clicked {
+  bottom: 0rem;
+}
+
+input[type="text"] {
+  width: 22.5rem;
+  height: 5rem;
+  margin-right: 1rem;
+  outline: none;
+  padding-left: 2rem;
+  border-radius: 1rem;
+  border: solid 0.2rem var(--placeholder);
+  font-family: "Asap", sans-serif;
+  font-size: 1.6rem;
+}
+
+input[type="text"]::placeholder {
+  color: var(--placeholder);
+}
+
+.addBtn {
+  width: 5rem;
+  height: 5rem;
+  border: solid 0.2rem var(--react-blue);
+  box-shadow: 0px 0px 10px 0px var(--react-blue);
+  background-color: var(--react-blue);
+  border-radius: 1rem;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--bg-elevate-1);
+}

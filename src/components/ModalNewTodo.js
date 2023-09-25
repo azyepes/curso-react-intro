@@ -1,12 +1,12 @@
+import '../css/ModalNewTodo.css'
 
-
-function TodoModalNew() {
+function ModalNewTodo() {
   return (
     <div className="modal">
-      <input type={"text"}></input>
-      <button className="addBtn">Add</button>
+      <input type={"text"} placeholder={'Añade un nuevo TODO...'}></input>
+      <button className="addBtn">+</button>
     </div>
   )
 }
 
-export { TodoModalNew }
+export { ModalNewTodo }

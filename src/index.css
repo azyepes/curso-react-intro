@@ -19,7 +19,7 @@
 
 html {
   font-size: 62.5%;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Asap", sans-serif;
 }
 
 body {
@@ -34,23 +34,5 @@ body {
   height: 100%;
   width: 100%;
   margin: auto;
-}
-
-input {
-  border: solid 0.2rem var(--placeholder);
-}
-
-input::placeholder {
-  color: var(--placeholder);
-}
-
-input:focus {
-  border: solid 0.2rem var(--text-border-black);
-  outline: none;
-}
-
-ul {
-  list-style: none;
-  width: 32.7rem;
-  margin: 4rem auto 8rem;
+  padding-bottom: 2rem;
 }

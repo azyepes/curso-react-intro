@@ -2,7 +2,7 @@
   --react-blue: hsla(193, 94%, 68%, 1);
   --icon-delete: hsla(0, 99%, 59%, 1);
   --bg-elevate-0: hsla(200, 13%, 95%, 1);
-  }
+}
 
 .plusButton {
   position: fixed;
@@ -19,7 +19,7 @@
   justify-content: center;
   transition: bottom 1s ease;
 }
-  
+
 .plus {
   width: 4rem;
   height: 4rem;
@@ -30,11 +30,12 @@
   color: var(--bg-elevate-0);
 }
 
-.plusButtonHover {
+.plusButton--clicked {
   background-color: var(--icon-delete);
   box-shadow: 0px 5px 25px 0px var(--icon-delete);
-}  
+  bottom: 10rem;
+}
 
-.plusHover {
+.plus--clicked {
   transform: rotate(225deg);
 }
