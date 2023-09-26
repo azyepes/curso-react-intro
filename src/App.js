@@ -37,7 +37,14 @@ function App() {
   const completeTodo = (text) => {
     const newTodos = [...todos]
     const todoIndex = newTodos.findIndex( (todo) => todo.text === text)
-    newTodos[todoIndex].completed = true
+    console.log(newTodos);
+    newTodos[todoIndex].completed ? newTodos[todoIndex].completed = false 
+      : newTodos[todoIndex].completed = true
+    // if (newTodos[todoIndex].completed) {
+    //   newTodos[todoIndex].completed = false 
+    // } else {
+    //   newTodos[todoIndex].completed = true  
+    // }
     setTodos(newTodos)
   }
   // Función para borrar todos
@@ -48,14 +55,13 @@ function App() {
     setTodos(newTodos)
   }
   // Función para actualizar header
-  // const title = document.getElementById("titleId")
-  // const updateHeader = () => {
-    
-  // }
+  const updateHeader = () => {
+    todosCompleted === totalTodos ? setHeader('Felicitaciones') : setHeader('Sigue así')
+  }
 
   return (
     <React.Fragment>
-      <TodoCounter completed={todosCompleted} total={totalTodos} header={header} setHeader={setHeader}/>
+      <TodoCounter completed={todosCompleted} total={totalTodos} header={header} setHeader={updateHeader}/>
       <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
 
       <TodoList>

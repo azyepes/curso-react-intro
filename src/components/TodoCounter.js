@@ -4,32 +4,22 @@ import "../css/TodoCounter.css";
 //     backgroundColor: 'red',
 // }
 
-function TodoCounter({ total, completed, header, setHeader }) {
-
-  // Función para actualizar header
-  const UpdateHeader = () => {
-    if (total === 0) {
-      // let title = `Agrega un nuevo TODO`
-      setHeader(`Agrega un nuevo TODO`)
-    } else if (completed < total) {
-      // let title = `Has completado ${completed} de ${total} TODOs`
-      setHeader(`Has completado ${completed} de ${total} TODOs`)
-    } else if (completed === total) {
-      // let title = `Felicidades`
-      setHeader(`Felicidades`)
-    }
-    return header
-  }
-
-  
-
+function TodoCounter({ total, completed }) {
   return (
-    <div className="header">
-      <h1 id="titleId" className="title" >
-        {/* Has completado <span>{completed}</span> de <span>{total}</span> TODOs */}
-        <UpdateHeader />
+    
+      completed < total ?
+      <h1 id="titleId" className="title">
+        Has completado <span>{completed}</span> de <span>{total}</span> TODOs
       </h1>
-    </div>
+      : total === 0 ?
+      <h1 id="titleId" className="title">
+        Agrega un nuevo TODO
+      </h1>
+      : 
+      <h1 id="titleId" className="title">
+        Felicidades completastes tus TODOS
+      </h1>
+    
   );
 }
 
