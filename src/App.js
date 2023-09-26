@@ -6,24 +6,26 @@ import { TodoItem } from "./components/TodoItem";
 import { TodoList } from "./components/TodoList";
 import { ModalNewTodo } from "./components/ModalNewTodo";
 
-export const defaultTodos = [
+const defaultTodos = [
   { text: "Cortar cebolla", completed: false },
   { text: "Picar tomáte", completed: true },
   { text: "Picar pimentón", completed: true },
-  { text: "Adobar proteína", completed: false },
+  { text: "Adobar proteína", completed: true },
   { text: "Cocinar", completed: true },
-  { text: "Estudiar", completed: false },
+  { text: "Estudiar", completed: true },
   { text: "Comer", completed: true },
-  { text: "Lavar platos", completed: false },
+  { text: "Lavar platos", completed: true },
   { text: "Descansar después de cocinar, estudiar y comer", completed: true },
 ];
 
 function App() {
   const [todos, setTodos] = React.useState(defaultTodos);
   const [searchValue, setSearchValue] = React.useState("");
+  const [ header, setHeader] = React.useState('')
 
   const todosCompleted = todos.filter((todo) => !!todo.completed).length;
   const totalTodos = todos.length;
+  // Función para buscar coincidencias
   const searchedTodos = todos.filter( todo => {
     // Remover acentos
     const removedAccent = todo.text.normalize("NFD").replace(/[\u0300-\u036f]/g, "")
@@ -31,10 +33,29 @@ function App() {
     const lowerCase = removedAccent.toLocaleLowerCase()
     return lowerCase.includes(searchValue)
   })
+  // Función para encontrar el todo completado
+  const completeTodo = (text) => {
+    const newTodos = [...todos]
+    const todoIndex = newTodos.findIndex( (todo) => todo.text === text)
+    newTodos[todoIndex].completed = true
+    setTodos(newTodos)
+  }
+  // Función para borrar todos
+  const deleteTodo = (text) => {
+    const newTodos = [...todos]
+    const todoIndex = newTodos.findIndex( (todo) => todo.text === text)
+    newTodos.splice(todoIndex, 1)
+    setTodos(newTodos)
+  }
+  // Función para actualizar header
+  // const title = document.getElementById("titleId")
+  // const updateHeader = () => {
+    
+  // }
 
   return (
     <React.Fragment>
-      <TodoCounter completed={todosCompleted} total={totalTodos} />
+      <TodoCounter completed={todosCompleted} total={totalTodos} header={header} setHeader={setHeader}/>
       <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
 
       <TodoList>
@@ -43,8 +64,8 @@ function App() {
             key={todo.text}
             text={todo.text}
             completed={todo.completed}
-            searchValue={searchValue}
-            setSearchValue={setSearchValue}
+            onComplete={() => { completeTodo(todo.text) }}
+            onDelete={() => { deleteTodo(todo.text) }}
           />
         ))}
       </TodoList>
