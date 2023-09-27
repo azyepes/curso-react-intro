@@ -1,5 +1,4 @@
-// import { Component } from "react";
-import "../css/TodoCounter.css";
+import "./TodoCounter.css";
 // const estilos = {
 //     backgroundColor: 'red',
 // }

@@ -1,4 +1,4 @@
-import "../css/CreateTodoButton.css";
+import "./CreateTodoButton.css";
 
 const openModal = () => {
   const plusBtn = document.querySelector(".plusButton");

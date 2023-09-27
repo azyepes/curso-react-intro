@@ -1,4 +1,4 @@
-import "../css/TodoItem.css";
+import "./TodoItem.css";
 
 function TodoItem( { text, completed, onComplete, onDelete } ) {
 

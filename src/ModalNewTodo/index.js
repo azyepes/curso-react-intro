@@ -1,4 +1,4 @@
-import '../css/ModalNewTodo.css'
+import './ModalNewTodo.css'
 
 function ModalNewTodo() {
   return (
