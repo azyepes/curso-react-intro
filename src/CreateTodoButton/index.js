@@ -9,10 +9,12 @@ const openModal = () => {
     plusBtn.classList.remove("plusButton--clicked");
     plus.classList.remove("plus--clicked");
     modal.classList.remove("modal-plusButton--clicked");
+    modal.classList.add('hide-modal')
   } else {
     plusBtn.classList.add("plusButton--clicked");
     plus.classList.add("plus--clicked");
     modal.classList.add("modal-plusButton--clicked");
+    modal.classList.remove('hide-modal')
   }
 };
 
