@@ -25,7 +25,7 @@ import "./CreateTodoButton.css";
 function CreateTodoButton() {
   const { setOpenModal } = React.useContext(TodoContext)
   return (
-    <button className="plusButton" onClick={() => setOpenModal(true)}  >
+    <button className="plusButton" onClick={() => setOpenModal(state => !state)}  >
       <div className="plus">+</div>
     </button>
   );
