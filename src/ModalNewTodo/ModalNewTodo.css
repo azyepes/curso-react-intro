@@ -12,29 +12,34 @@
 }
 
 .modal {
-  position: relative;
-  width: 100%;
-  height: 10rem;
-  bottom: 3rem;
+  /* position: relative; */
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  width: 30rem;
+  height: 12rem;
   background: var(--bg-elevate-1);
-  /* box-shadow: 0px -5px 25px 0px var(--text-border-black); */
-  transition: bottom 1s, visibility 1s, opacity 1s ease;
+  /* transition: bottom 1s, visibility 1s, opacity 1s ease; */
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  /* visibility: visible; */
-  opacity: 1;
-  border-radius: 0 0 1rem 1rem;
+  justify-content: space-evenly;
+  /* opacity: 1; */
+  border-radius: 1rem;
+  /* border-radius: 0 0 1rem 1rem; */
 }
 
-.modal-plusButton--clicked {
+/* .modal-plusButton--clicked {
   bottom: 13rem;
-}
+} */
 
 input[type="text"] {
   width: 22.5rem;
-  height: 5rem;
-  margin-right: 1rem;
+  height: 4rem;
+  /* margin-right: 1rem; */
   outline: none;
   padding-left: 2rem;
   border-radius: 1rem;
@@ -52,20 +57,47 @@ input[type="text"]:focus {
 }
 
 .addBtn {
-  width: 5rem;
-  height: 5rem;
+  width: 9rem;
+  height: 4rem;
   border: solid 0.2rem var(--react-blue);
-  /* box-shadow: 0px 0px 10px 0px var(--react-blue); */
-  background-color: var(--react-blue);
+  background-color: var(--bg-elevate-1);
   border-radius: 1rem;
-  font-size: 3rem;
+  font-size: 1.6rem;
   font-weight: 700;
-  color: var(--bg-elevate-1);
+  color: var(--react-blue);
   cursor: pointer;
 }
 
-.hide-modal {
-  /* visibility: hidden; */
+.addBtn:hover {
+  background-color: var(--react-blue);
+  color: var(--bg-elevate-1);
+}
+
+/* .hide-modal {
   opacity: 0;
-  /* transition: visibility 1s, opacity 1s ease; */
+} */
+
+.closeBtn {
+  width: 9rem;
+  height: 4rem;
+  border: solid 0.2rem var(--icon-delete);
+  background-color: var(--bg-elevate-1);
+  border-radius: 1rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--icon-delete);
+  cursor: pointer;
+}
+
+.closeBtn:hover {
+  background-color: var(--icon-delete);
+  color: var(--bg-elevate-1);
+}
+
+.btnContainer {
+  width: 22.5rem;
+  height: 4rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }

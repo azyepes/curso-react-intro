@@ -1,31 +1,30 @@
 import React from "react";
 import { TodoCounter } from "../TodoCounter";
 import { TodoSearch } from "../TodoSearch";
-import { CreateTodoButton } from "../CreateTodoButton";
-import { TodoItem } from "../TodoItem";
 import { TodoList } from "../TodoList";
-import { ModalNewTodo } from "../ModalNewTodo";
+import { TodoItem } from "../TodoItem";
 import { TodosLoading } from "../TodosLoading";
 import { TodosError } from "../TodosError";
 import { TodosEmpty } from "../TodosEmpty";
+import { CreateTodoButton } from "../CreateTodoButton";
+import { ModalNewTodo } from "../ModalNewTodo";
+import { TodoContext } from "../TodoContext";
 
-function AppUI({
-  completed,
-  total,
-  searchValue,
-  setSearchValue,
-  searchedTodos,
-  completeTodo,
-  deleteTodo,
-  loading,
-  error,
-}) {
-  console.log(total);
+function AppUI() {
+  const { 
+    loading,
+    error,
+    searchedTodos,
+    completeTodo,
+    deleteTodo,
+    openModal,
+    // setOpenModal
+  } = React.useContext(TodoContext)
+  
   return (
     <React.Fragment>
-      <TodoCounter completed={completed} total={total} />
-      <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
-
+      <TodoCounter />
+      <TodoSearch />
       <TodoList>
         {loading && 
           <React.Fragment>
@@ -37,17 +36,21 @@ function AppUI({
 
         {searchedTodos.map((todo) => (
           <TodoItem
-            key={todo.text}
-            text={todo.text}
-            completed={todo.completed}
-            onComplete={() => { completeTodo(todo.text); }}
-            onDelete={() => { deleteTodo(todo.text); }}
+          key={todo.text}
+          text={todo.text}
+          completed={todo.completed}
+          onComplete={() => { completeTodo(todo.text); }}
+          onDelete={() => { deleteTodo(todo.text); }}
           />
-        ))}
+          ))}
       </TodoList>
-
       <CreateTodoButton />
-      <ModalNewTodo />
+
+      {openModal && (
+        <ModalNewTodo>
+          {/* La funcionalidad de agregar TODOS */}
+        </ModalNewTodo>
+      )}
     </React.Fragment>
   );
 }

@@ -2,7 +2,7 @@ import React from 'react'
 
 function TodosError() {
   return (
-    <div>TodosError</div>
+    <li> Ha ocurrido un error en el servidor </li>
   )
 }
 

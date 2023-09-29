@@ -2,7 +2,7 @@ import React from 'react'
 
 function TodosEmpty() {
   return (
-    <div>TodosEmpty</div>
+    <li> No tienes ningún TODO </li>
   )
 }
 
