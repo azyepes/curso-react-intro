@@ -26,7 +26,7 @@ function UseLocalStorage(itemName, initialValue) {
         setError(true)
       }
     }, 2000);
-  }, [initialValue, itemName])
+  }, [])
   
   // Funcion para guardar estado y local storage
   const saveItem = (newItems) => {

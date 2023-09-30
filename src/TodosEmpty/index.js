@@ -1,8 +1,12 @@
 import React from 'react'
+// import '../TodoItem/TodoItem.css'
 
 function TodosEmpty() {
+
   return (
-    <li> No tienes ningún TODO </li>
+    <li className='list'> 
+      <p>No tienes ningún TODO</p>
+    </li>
   )
 }
 

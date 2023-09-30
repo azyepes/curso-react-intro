@@ -5,8 +5,8 @@ import { UseLocalStorage } from './UseLocalStorage';
 const TodoContext = React.createContext()
 
 function TodoProvider( { children } ) {
-  const {item: todos, saveItem: saveTodos, loading, error} = UseLocalStorage('TODO_V1', [])
-  const [searchValue, setSearchValue] = React.useState("");
+  const { item: todos, saveItem: saveTodos, loading, error } = UseLocalStorage('TODO_V1', [])
+  const [ searchValue, setSearchValue ] = React.useState("");
   const [ openModal, setOpenModal ] = React.useState(false)
   const [ editContent, setEditContent ] = React.useState(false)
 
@@ -34,7 +34,6 @@ function TodoProvider( { children } ) {
   const deleteTodo = (text) => {
     const newTodos = [...todos]
     const todoIndex = newTodos.findIndex( (todo) => todo.text === text)
-    console.log(newTodos[todoIndex]);
 
     newTodos.splice(todoIndex, 1)
     saveTodos(newTodos)
@@ -50,16 +49,15 @@ function TodoProvider( { children } ) {
   }
   
   // Editar un Todo y actualizar la lista de TODOS
-
   const onEdit = (text) => {
     const newTodos = [...todos]
     const todoIndex = newTodos.findIndex( (todo) => todo.text === text)
     const valueText = document.getElementsByTagName("p")[todoIndex]
     valueText.classList.add('todoItem--editable')
 
-    const trash = Array.from(document.querySelectorAll('.fa-trash'))[todoIndex]
-    trash.classList.add('fa-floppy-disk')
-    trash.classList.remove('fa-trash')
+    const trash = Array.from(document.querySelectorAll('.fa-trash'))
+    trash[todoIndex].classList.add('fa-floppy-disk')
+    trash[todoIndex].classList.remove('fa-trash')
     
     valueText.contentEditable = true
     setEditContent(true)
@@ -73,9 +71,9 @@ function TodoProvider( { children } ) {
     
     newTodos[todoIndex].text = valueText.textContent
     
-    const trash = Array.from(document.querySelectorAll('.fa-floppy-disk'))[0]
-    trash.classList.remove('fa-floppy-disk')
-    trash.classList.add('fa-trash')
+    const trash = Array.from(document.querySelectorAll('.fa-floppy-disk'))
+    trash[0].classList.remove('fa-floppy-disk')
+    trash[0].classList.add('fa-trash')
     
     saveTodos(newTodos)
     valueText.contentEditable = false
@@ -103,7 +101,6 @@ function TodoProvider( { children } ) {
     }}>
       { children }
     </TodoContext.Provider>
-
   )
 }
 

@@ -18,7 +18,6 @@ function AppUI() {
     completeTodo,
     deleteTodo,
     openModal,
-    // setOpenModal
   } = React.useContext(TodoContext)
   
   return (
@@ -32,7 +31,7 @@ function AppUI() {
           </React.Fragment>
         }
         {error && <TodosError />}
-        {(!loading && searchedTodos.lenght === 0) && <TodosEmpty />}
+        {!loading && searchedTodos.length === 0 && <TodosEmpty />}
 
         {searchedTodos.map((todo) => (
           <TodoItem
