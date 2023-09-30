@@ -8,6 +8,7 @@ function TodoProvider( { children } ) {
   const {item: todos, saveItem: saveTodos, loading, error} = UseLocalStorage('TODO_V1', [])
   const [searchValue, setSearchValue] = React.useState("");
   const [ openModal, setOpenModal ] = React.useState(false)
+  const [ editContent, setEditContent ] = React.useState(false)
 
   const todosCompleted = todos.filter((todo) => !!todo.completed).length;
   const totalTodos = todos.length;
@@ -25,7 +26,6 @@ function TodoProvider( { children } ) {
   const completeTodo = (text) => {
     const newTodos = [...todos]
     const todoIndex = newTodos.findIndex( (todo) => todo.text === text)
-
     newTodos[todoIndex].completed ? newTodos[todoIndex].completed = false 
       : newTodos[todoIndex].completed = true
     saveTodos(newTodos)
@@ -34,11 +34,47 @@ function TodoProvider( { children } ) {
   const deleteTodo = (text) => {
     const newTodos = [...todos]
     const todoIndex = newTodos.findIndex( (todo) => todo.text === text)
+    console.log(newTodos[todoIndex]);
+
     newTodos.splice(todoIndex, 1)
     saveTodos(newTodos)
   }
+  // Añadir TODOS al comienzo de la lista
+  const addTodo = (text) => {
+    const newTodos = [...todos]
+    newTodos.unshift({
+      text,
+      completed: false
+    })
+    saveTodos(newTodos)
+  }
+  
+  // Editar un Todo y actualizar la lista de TODOS
+
+  const onEdit = (text) => {
+    const newTodos = [...todos]
+    const todoIndex = newTodos.findIndex( (todo) => todo.text === text)
+    const valueText = document.getElementsByTagName("p")[todoIndex]
+    // valueText.contentEditable = true
+    setEditContent(true)
+  }
+  
+  const onSaveEdit = (text) => {
+    const newTodos = [...todos]
+    const todoIndex = newTodos.findIndex( (todo) => todo.text === text)
+    const valueText = document.getElementsByTagName("p")[todoIndex].textContent
+    newTodos[todoIndex].text = valueText
+    saveTodos(newTodos)
+    setEditContent(false)
+    
+  }
+
   return (
     <TodoContext.Provider value={{
+      loading,
+      error,
+      openModal,
+      setOpenModal,
       todosCompleted,
       totalTodos,
       searchValue,
@@ -46,10 +82,10 @@ function TodoProvider( { children } ) {
       searchedTodos,
       completeTodo,
       deleteTodo,
-      loading,
-      error,
-      openModal,
-      setOpenModal,
+      addTodo,
+      onEdit,
+      onSaveEdit,
+      editContent,
     }}>
       { children }
     </TodoContext.Provider>

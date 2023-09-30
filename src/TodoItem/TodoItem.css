@@ -51,6 +51,10 @@ li span i {
   color: var(--icon-delete);
 }
 
+.fa-floppy-disk:hover {
+  color: var(--edit);
+}
+
 .fa-pen:hover {
   color: var(--edit);
 }
@@ -63,4 +67,9 @@ li span i {
   color: var(--icon-success);
   font-size: 2.4rem;
   font-weight: 700;
+}
+
+.todoItem--editable {
+  border: solid 0.1rem var(--edit);
+  border-radius: 0.5rem;
 }
