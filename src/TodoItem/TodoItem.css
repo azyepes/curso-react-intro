@@ -35,11 +35,13 @@
   text-decoration-thickness: 0.2rem;
 }
 
-.list span {
+.list button {
   cursor: pointer;
+  border: none;
+  background-color: inherit;
 }
 
-.list span:hover {
+.list button:hover {
   font-size: 2.4rem;
 }
 
@@ -72,4 +74,9 @@ li span i {
 .todoItem--editable {
   border: solid 0.1rem var(--edit);
   border-radius: 0.5rem;
+  outline-color: var(--edit);
+}
+
+#myP {
+  padding: 0.1rem 0rem 0.1rem 0.4rem;
 }

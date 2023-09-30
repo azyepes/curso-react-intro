@@ -55,16 +55,30 @@ function TodoProvider( { children } ) {
     const newTodos = [...todos]
     const todoIndex = newTodos.findIndex( (todo) => todo.text === text)
     const valueText = document.getElementsByTagName("p")[todoIndex]
-    // valueText.contentEditable = true
+    valueText.classList.add('todoItem--editable')
+
+    const trash = Array.from(document.querySelectorAll('.fa-trash'))[todoIndex]
+    trash.classList.add('fa-floppy-disk')
+    trash.classList.remove('fa-trash')
+    
+    valueText.contentEditable = true
     setEditContent(true)
   }
   
   const onSaveEdit = (text) => {
     const newTodos = [...todos]
     const todoIndex = newTodos.findIndex( (todo) => todo.text === text)
-    const valueText = document.getElementsByTagName("p")[todoIndex].textContent
-    newTodos[todoIndex].text = valueText
+    const valueText = document.getElementsByTagName("p")[todoIndex]
+    valueText.classList.remove('todoItem--editable')
+    
+    newTodos[todoIndex].text = valueText.textContent
+    
+    const trash = Array.from(document.querySelectorAll('.fa-floppy-disk'))[0]
+    trash.classList.remove('fa-floppy-disk')
+    trash.classList.add('fa-trash')
+    
     saveTodos(newTodos)
+    valueText.contentEditable = false
     setEditContent(false)
     
   }

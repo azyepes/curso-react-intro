@@ -8,23 +8,32 @@ function TodoItem( { text, completed, onComplete, onDelete } ) {
 
   return (
     <li className="list">
-      <span onClick={onComplete}>
+      <button onClick={onComplete}>
         <i className={`fa-solid fa-check ${completed && "fa-check--complete"}`}></i>
-      </span>
+      </button>
       <p 
         id="myP"
         suppressContentEditableWarning={true}
-        contentEditable={editContent}
-        className={`todoItem ${completed && "todoItem--complete"} ${editContent && 'todoItem--editable'}`} 
+        contentEditable={false}
+        className={`todoItem ${completed && "todoItem--complete"} `}  //${editContent && 'todoItem--editable'}
       >
         {text}
       </p>
-      <span onClick={()=>{onEdit(text)}} >
-        <i className={"fa-solid fa-pen"}></i>
-      </span>
-      <span onClick={editContent ? ()=>{onSaveEdit(text)} : onDelete}>
-        <i className={`fa-solid ${editContent ? "fa-floppy-disk" : "fa-trash"}`}></i>
-      </span>
+      <button 
+        onClick={()=>{onEdit(text)}} 
+        disabled={editContent}  
+        >
+        <i 
+          className={"fa-solid fa-pen"}
+          ></i>
+         
+      </button>
+      <button 
+        // disabled={editContent}  
+        onClick={editContent ? ()=>{onSaveEdit(text)} : onDelete}>
+        <i className={`fa-solid fa-trash`} //${editContent ? "fa-floppy-disk" : "fa-trash"}
+        ></i>
+      </button>
     </li>
   );
 }

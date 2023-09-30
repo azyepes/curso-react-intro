@@ -13,12 +13,10 @@
   border: solid 0.2rem var(--react-blue);
   background-color: var(--react-blue);
   border-radius: 50%;
-  /* box-shadow: 0px 5px 25px 0px var(--react-blue); */
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* transition: bottom 1s, border-radius 1s ease; */
   margin: auto;
   z-index: 1;
 }
@@ -36,15 +34,3 @@
 .plus:hover {
   transform: rotate(225deg);
 }
-
-/* .plusButton--clicked {
-  border: solid 0.2rem var(--icon-delete);
-  background-color: var(--icon-delete);
-  box-shadow: 0px 5px 25px 0px var(--icon-delete);
-  bottom: 13rem;
-  border-radius: 1rem 1rem 0 0;
-}
-
-.plus--clicked {
-  transform: rotate(225deg);
-} */
